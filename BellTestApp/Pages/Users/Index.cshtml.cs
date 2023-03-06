@@ -7,6 +7,7 @@ namespace BellTestApp.Pages.Users
     public class IndexModel : PageModel
     {
         private readonly BellTestApp.Data.BellTestAppContext _context;
+        public String genericMessage = string.Empty;
 
         public IndexModel(BellTestApp.Data.BellTestAppContext context)
         {
@@ -20,6 +21,15 @@ namespace BellTestApp.Pages.Users
             if (_context.User != null)
             {
                 User = await _context.User.ToListAsync();
+            }
+
+            if (Request.Query["handler"].ToString() == "s")
+            {
+                genericMessage = "User Added";
+            }
+            else if (Request.Query["handler"].ToString() == "d")
+            {
+                genericMessage = "User Deleted";
             }
         }
     }

@@ -10,6 +10,14 @@
         <h4 class="card-title">User List</h4>
         <hr />
 
+        @if (Model.genericMessage.Length > 0)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>@Model.genericMessage</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
         <div class="float-end">
             <a class="btn btn-primary" asp-page="Create">Add New User</a>
         </div>
@@ -38,33 +46,33 @@
                 </tr>
             </thead>
             <tbody>
-        @foreach (var item in Model.User) {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Phone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Address)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DOB)
-                    </td>
-                    <td>
-                        <a class="btn btn-outline-primary btn-sm" asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
-                        <a class="btn btn-outline-secondary btn-sm" asp-page="./Details" asp-route-id="@item.ID">Details</a>
-                        <a class="btn btn-outline-danger btn-sm" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-                    </td>
-                </tr>
-        }
+                @foreach (var item in Model.User) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DOB)
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-primary btn-sm" asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+                            <a class="btn btn-outline-secondary btn-sm" asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                            <a class="btn btn-outline-danger btn-sm" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     </div>

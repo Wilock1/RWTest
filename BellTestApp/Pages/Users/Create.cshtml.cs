@@ -21,11 +21,9 @@ namespace BellTestApp.Pages.Users
         [BindProperty]
         public User User { get; set; }
         
-
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return Page();
             }
@@ -33,7 +31,7 @@ namespace BellTestApp.Pages.Users
             _context.User.Add(User);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", "s");
         }
     }
 }
