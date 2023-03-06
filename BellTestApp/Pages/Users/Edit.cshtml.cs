@@ -58,7 +58,7 @@ namespace BellTestApp.Pages.Users
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Index", "e");
         }
 
         private bool UserExists(int id)

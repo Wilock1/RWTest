@@ -31,6 +31,10 @@ namespace BellTestApp.Pages.Users
             {
                 genericMessage = "User Deleted";
             }
+            else if (Request.Query["handler"].ToString() == "e")
+            {
+                genericMessage = "User Updated";
+            }
         }
     }
 }
